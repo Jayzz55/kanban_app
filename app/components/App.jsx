@@ -26,6 +26,8 @@ export default class App extends React.Component {
   }
 
   render() {
+    const notes = this.state.notes;
+
     return (
       <div>
         <Notes items={notes} />

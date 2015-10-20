@@ -8,7 +8,7 @@ export default class App extends React.Component {
     super(props);
 
     this.state = {
-      notes = [
+      notes: [
       {
         id: uuid.v4(),
         task: 'Learn Webpack'
@@ -30,8 +30,13 @@ export default class App extends React.Component {
 
     return (
       <div>
+        <button className="add-note" onClick={this.addNote}>+</button>
         <Notes items={notes} />
       </div>
     );
+  }
+
+  addNote() {
+    console.log('add note');
   }
 }

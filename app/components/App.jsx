@@ -23,6 +23,8 @@ export default class App extends React.Component {
       }
       ]
     };
+
+    this.addNote = this.addNote.bind(this);
   }
 
   render() {
@@ -37,6 +39,11 @@ export default class App extends React.Component {
   }
 
   addNote() {
-    console.log('add note');
+    this.setState({
+      notes: this.state.notes.concat([{
+        id: uuid.v4(),
+        task: 'New task'
+      }])
+    });
   }
 }

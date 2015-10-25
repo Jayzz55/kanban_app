@@ -9,6 +9,13 @@ class NoteStore {
     this.notes = [];
   }
   create(note) {
+    const notes = this.notes;
+
+    note.id = uuid.v4();
+
+    this.setState({
+      notes: notes.concat(note)
+    });
   }
   update({id, task}) {
   }

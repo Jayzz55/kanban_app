@@ -1,6 +1,6 @@
 import uuid from 'node-uuid';
-import alt from '../libs/alt';
-import NoteActions from '../ations/NoteActions';
+import alt from '../lib/alt';
+import NoteActions from '../actions/NoteActions';
 
 class NoteStore {
   constructor() {
@@ -43,7 +43,7 @@ class NoteStore {
   }
   findNote(id) {
     const notes = this.notes;
-    const noteIndex = notes.findIndex((notes) => note.id === id);
+    const noteIndex = notes.findIndex((note) => note.id === id);
 
     if(noteIndex < 0) {
       console.warn('Failed to find note', notes, id);

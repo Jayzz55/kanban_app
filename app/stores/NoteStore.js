@@ -18,8 +18,28 @@ class NoteStore {
     });
   }
   update({id, task}) {
+    let notes = this.notes;
+    const noteIndex = this.findNote(id);
+
+    if(noteIndex < 0) {
+      return;
+    }
+
+    notes[noteIndex].task = task;
+
+    this.setState({notes});
   }
   delete(id) {
+  }
+  findNote(id) {
+    const notes = this.notes;
+    const noteIndex = notes.findIndex((notes) => note.id === id);
+
+    if(noteIndex < 0) {
+      console.warn('Failed to find note', notes, id);
+    }
+
+    return noteIndex;
   }
 }
 

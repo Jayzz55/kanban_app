@@ -32,7 +32,13 @@ export default class Note extends React.Component {
       onKeyPress={this.checkEnter} />;
   }
   renderTask() {
-    return <div onClick={this.edit}>{this.props.task}</div>;
+    return <div onClick={this.edit}>
+             <span className="task">{this.props.task}</span>
+             {this.props.onDelete ? this.renderDelete() : null }
+           </div>;
+  }
+  renderDelete() {
+    return <button className="delete" onClick={this.props.onDelete}>x</button>
   }
   edit() {
     this.setState({
